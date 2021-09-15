@@ -1,25 +1,10 @@
 <html>
-  <head>
     <title>2ページ目</title>
-     <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="+eMYAmX2UK4Z45Ie9PllXczo7AtkXevx5xSGlr5WsYU2f+9MsnAfs6NEcEgnYucC7SuUPrdjrFtRCBMI3SDGTQ==" />
-
-    <link rel="stylesheet" media="all" href="/assets/application-d12397cbc3a266ce5a99f7b588223090c55ca04a439953bb5f9304395de93fc3.css" data-turbolinks-track="reload" />
-    <script src="/assets/application-114264dd93c8ff30e4335b71eed7949d66c4e7a8eb62e2de6284c046fe07104b.js" data-turbolinks-track="reload"></script>
- </head>
-
-
-  <body>
+<body>
 
 <h1>Books</h1>
 
-<% if flash[:notice] %>
-   <p id="notice">
-     <%= flash[:notice] %>
-   </p>
-<% end %>
-
-    <table>
+ <table>
   <thead>
     <tr>
      <th>Title</th>
@@ -28,7 +13,7 @@
 
      <th>Body</th>
     <div class="content_body" >
-    </div>
+  </div>
 
     <th colspan="3"></th>
     </tr>
@@ -45,19 +30,16 @@
    <td><%= link_to 'Destroy',book_path(book.id), method: :delete%></td>
 
 
-  </tr>
+    </tr>
 <% end %>
 
   </tbody>
 </table>
 
-
-
-
 <h2>New book</h2>
 
 <% if @book.errors.any? %>
-   <%= @book.errors.count %>件のエラーが発生しました
+   <%= pluralize(@book.errors.count, "error") %>
    <% @book.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>
@@ -76,7 +58,7 @@
  </div>
 
  <div class="actions">
-    <%= f.submit 'Create Book' %>
+   <%= f.submit 'Create Book' %>
  </div>
 <% end %>
 
